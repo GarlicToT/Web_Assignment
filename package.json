@@ -1,0 +1,25 @@
+{
+  "name": "web_assignment",
+  "version": "1.0.0",
+  "description": "my web development assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GarlicToT/Web_Assignment.git"
+  },
+  "author": "GarlicToT",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GarlicToT/Web_Assignment/issues"
+  },
+  "homepage": "https://github.com/GarlicToT/Web_Assignment#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "loader": "^2.1.1",
+    "socket.io": "^4.7.5"
+  }
+}
