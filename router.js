@@ -7,9 +7,9 @@ router.get('/', function(req, res) {
   res.sendFile(__dirname + '/src/html/HomePage.html');
 });
 
-// router.get('/DetailPage', function(req, res) {
-//   res.sendFile(__dirname + '/src/html/DetailPage.html');
-// });
+router.get('/MainPage', function(req, res) {
+  res.sendFile(__dirname + '/src/html/MainPage.html');
+});
 
 // router.get('/AboutMe', function(req, res) {
 //     res.sendFile(__dirname + '/src/html/AboutMe.html');

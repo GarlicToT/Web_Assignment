@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="../style/main_page.css">
+</head>
+<body>
+    <!-- Tabbar -->
+    <div class="tabbar">
+        <a href="basic_info.html">About me</a>
+        <a href="quiz.html">Have a quiz</a>
+        <a href="result.html">Your result</a>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- Left Section -->
+        <div class="left-section">
+            <img src="../images/my_photo.PNG" alt="My Photo" class="photo">
+            <div class="dropdown">
+                <button class="dropbtn">About me</button>
+                <div class="dropdown-content">
+                    <a href="basic_info.html">Basic information</a>
+                    <a href="major_info.html">Major information</a>
+                    <a href="hobby.html">Hobby</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <img src="../images/quiz.PNG" alt="Quiz" class="photo">
+            <button class="quiz-btn" onclick="window.location.href='quiz.html'">Have a funny QUIZ</button>
+        </div>
+    </div>
+</body>
+</html>
