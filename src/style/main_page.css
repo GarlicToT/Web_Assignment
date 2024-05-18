@@ -15,14 +15,15 @@ body {
     padding: 10px 0;
 }
 
-.tabbar a {
+.tabbar a, .tabbar .dropbtn {
     color: white;
     text-decoration: none;
     padding: 14px 20px;
     text-align: center;
+    cursor: pointer;
 }
 
-.tabbar a:hover {
+.tabbar a:hover, .tabbar .dropbtn:hover {
     background-color: #ddd;
     color: black;
 }
@@ -92,8 +93,62 @@ body {
 }
 
 /* Button styles */
-.quiz-btn {
+/* .quiz-btn {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-}
+} */
+.quiz-btn {
+    background: #a370f0;
+    color: white;
+    font-family: inherit;
+    padding: 0.35em;
+    padding-left: 1.2em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3.3em;
+    cursor: pointer;
+  }
+  
+  .quiz-btn .icon {
+    background: white;
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+    right: 0.3em;
+    transition: all 0.3s;
+  }
+  
+  .quiz-btn:hover .icon {
+    width: calc(100% - 0.6em);
+  }
+  
+  .quiz-btn .icon svg {
+    width: 1.1em;
+    transition: transform 0.3s;
+    color: #7b52b9;
+  }
+  
+  .quiz-btn:hover .icon svg {
+    transform: translateX(0.1em);
+  }
+  
+  .quiz-btn:active .icon {
+    transform: scale(0.95);
+  }
+  

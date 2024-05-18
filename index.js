@@ -13,7 +13,7 @@ app.use(express.static('src'));
 // use router middleware
 app.use('/', routes);
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/src/html/HomePage.html');
+    res.sendFile(__dirname + '/src/html/home_page.html');
 });
 
 // variables

@@ -4,11 +4,11 @@ const path = require('path');
 
 // set routers for different pages
 router.get('/', function(req, res) {
-  res.sendFile(__dirname + '/src/html/HomePage.html');
+  res.sendFile(__dirname + '/src/html/home_page.html');
 });
 
 router.get('/MainPage', function(req, res) {
-  res.sendFile(__dirname + '/src/html/MainPage.html');
+  res.sendFile(__dirname + '/src/html/main_page.html');
 });
 
 // router.get('/AboutMe', function(req, res) {
