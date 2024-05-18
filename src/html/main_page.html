@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="../style/main_page.css">
 </head>
 <body>
+    <div class="welcome-container">
+        <div class="welcome-left">Welcome</div>
+        <div class="welcome-right">to my</div>
+    </div>
+    <div class="welcome-bottom">Web Assessment</div>
+
     <!-- Tabbar -->
     <div class="tabbar">
         <button class="value" onclick="location.href='MainPage'">
@@ -98,7 +104,7 @@
         dropdown.addEventListener('mouseleave', () => {
             timeout = setTimeout(() => {
                 dropdown.querySelector('.dropdown-content').style.display = 'none';
-            }, 300); // 300ms 延迟
+            }, 300); 
         });
     </script>
 </body>

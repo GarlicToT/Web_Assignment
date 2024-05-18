@@ -16,10 +16,53 @@ body {
     100% { transform: translateX(0); }
 }
 
-/* .my_photo:hover, .photo:hover {
+.welcome-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+}
+
+.welcome-left {
+    font-size: 15em;
+    font-weight: bold;
+    color: #F8AF78;
+    -webkit-text-stroke: 6px #FBFCD2;
+    transform: rotate(-8deg);
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    font-family: 'Cooper Black'; 
+}
+
+.welcome-right {
+    font-size: 10em;
+    font-weight: bold;
+    color: #F8AF78;
+    -webkit-text-stroke: 6px #FBFCD2;
+    position: absolute;
+    top: 220px;
+    right: 100px;
+    font-family: 'Cooper Black'; 
+    z-index: 10;
+}
+
+.welcome-bottom {
+    font-size: 11em;
+    font-weight: bold;
+    color: #F8AF78;
+    -webkit-text-stroke: 6px #FBFCD2;
+    text-align: center;
+    position: absolute;
+    bottom: -50px;
+    width: 100%;
+    font-family: 'Cooper Black'; 
+}
+
+.my_photo:hover, .photo:hover {
     animation: shake 0.5s;
     animation-timing-function: ease-in-out;
-} */
+}
 
 /* Tabbar styles */
 .tabbar {
