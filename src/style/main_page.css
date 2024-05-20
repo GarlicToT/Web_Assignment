@@ -217,60 +217,6 @@ button svg {
     transition-delay: 0.2s;
 }
 
-.quiz-btn {
-    background: #22a685;
-    color: white;
-    font-family: inherit;
-    padding: 0.35em;
-    padding-left: 1.2em;
-    font-size: 17px;
-    font-weight: 500;
-    border-radius: 0.9em;
-    border: none;
-    letter-spacing: 0.05em;
-    display: flex;
-    align-items: center;
-    box-shadow: inset 0 0 1.6em -0.6em #16725b;
-    overflow: hidden;
-    position: relative;
-    height: 2.8em;
-    padding-right: 3.3em;
-    cursor: pointer;
-}
-  
-.quiz-btn .icon {
-    background: white;
-    margin-left: 1em;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 2.2em;
-    width: 2.2em;
-    border-radius: 0.7em;
-    box-shadow: 0.1em 0.1em 0.6em 0.2em #1c8e72;
-    right: 0.3em;
-    transition: all 0.3s;
-}
-
-.quiz-btn:hover .icon {
-    width: calc(100% - 0.6em);
-}
-  
-.quiz-btn .icon svg {
-    width: 1.1em;
-    transition: transform 0.3s;
-    color: #1c8e72;
-}
-
-.quiz-btn:hover .icon svg {
-    transform: translateX(0.1em);
-}
-  
-.quiz-btn:active .icon {
-    transform: scale(0.95);
-}
-
 .right-section .image-container {
     position: relative;
 }
@@ -348,7 +294,6 @@ button svg {
     align-items: center;
     justify-content: center;
     z-index: 100;
-    border-bottom: solid #000 1px;
   }
   
   .card {
@@ -356,7 +301,7 @@ button svg {
     height: 60px;
     border-top-left-radius: 10px;
     transition: .4s ease-in-out, .2s background-color ease-in-out, .2s background-image ease-in-out;
-     backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     border: 1px solid transparent;
     -webkit-backdrop-filter: blur(5px);
     display: flex;
@@ -459,11 +404,10 @@ button svg {
  
   .text {
     position: absolute;
-    font-size: 0.7em;
+    font-size: 1.5em;
     transition: .4s ease-in-out;
     color: black;
     text-align: center;
     font-weight: bold;
-    letter-spacing: 0.33em;
     z-index: 3;
   }
