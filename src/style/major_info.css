@@ -1,0 +1,55 @@
+/* major_info.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.chat-container {
+    width: 80%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chat-message {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.user-message {
+    align-self: flex-end;
+    background-color: #daf8cb;
+}
+
+.gpt-message {
+    align-self: flex-start;
+    background-color: #e3e3e3;
+    position: relative;
+    padding-left: 60px; /* To accommodate the avatar */
+}
+
+.avatar {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.message-content {
+    font-size: 1em;
+    line-height: 1.4;
+}
