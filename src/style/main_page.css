@@ -339,11 +339,12 @@ button svg {
   justify-content: center;
   z-index: 1;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .card {
-  width: 60px;
-  height: 60px;
+  width: 150px;
+  height: 40px;
   border-top-left-radius: 10px;
   transition: .4s ease-in-out, .2s background-color ease-in-out, .2s background-image ease-in-out;
   backdrop-filter: blur(5px);
@@ -446,8 +447,6 @@ button svg {
 .card:nth-child(3):hover .dribble {
   fill: white;
 }
-
-
 
 .text {
   position: absolute;
