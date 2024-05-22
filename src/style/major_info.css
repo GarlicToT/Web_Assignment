@@ -16,7 +16,51 @@ body {
     max-width: 800px;
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Center the chat content vertically */
     gap: 20px;
+    position: relative;
+    height: 100vh;
+}
+
+.chat-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    padding-bottom: 100px; /* Space for the fixed input area and actions */
+    padding-top: 50px; /* To center content vertically */
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+    max-width: 800px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+}
+
+#send-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    background-color: #22a685;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .chat-message {
@@ -52,4 +96,24 @@ body {
 .message-content {
     font-size: 1em;
     line-height: 1.4;
+}
+
+.chat-actions {
+    display: none;
+    justify-content: space-around;
+    margin-top: 20px;
+    position: fixed;
+    bottom: 70px; /* Adjust according to the height of the input box */
+    width: 80%;
+    max-width: 800px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    background-color: transparent;
+    color: #22a685;
+    text-decoration: underline;
+    cursor: pointer;
 }
