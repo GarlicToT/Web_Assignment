@@ -7,67 +7,13 @@
     <link rel="stylesheet" href="../style/major_info.css">
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-content" id="chat-content">
-        </div>
-        <div class="chat-input">
-            <input type="text" id="user-input" value="What's Rong's major information?" readonly>
-            <button id="send-btn">Send</button>
-        </div>
-        <div class="chat-actions" id="chat-actions">
-            <button class="action-btn" onclick="location.href='BasicInfo'">Back to basic information page</button>
-            <button class="action-btn" onclick="location.href='Hobby'">Or see her hobby</button>
-        </div>
+    <div class="chat-container" id="chat-container">
+        <!-- Initial chat messages removed -->
     </div>
-    <script>
-        const messages = [
-            "Thanks to the college entrance examination, she has the opportunity to study Artificial Intelligence at UoA and SCNU. If you wonder why she chose this major, she would say she never imagined this situation either. In high school, she wanted to become a biologist.",
-            "But taking things as they come, she has been studying AI courses for nearly two years. You cannot say she knows little about this major, but there is indeed a long way to go for her. When she was a freshman, she participated in several (actually only one) programming competitions and got zero awards. Yet she achieved good results in the Math Modeling Competition as a programmer.",
-            "Now, as a sophomore, she has become stronger, taking on the role of project leader for two projects: one about computer vision (CV) and another about deep learning.",
-            "Sometimes, late at night, she wonders what it would be like if she pursued biology, as per her seventeen-year-old dreams."
-        ];
-
-        const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-        const typeMessage = async (element, message) => {
-            for (let i = 0; i < message.length; i++) {
-                element.textContent += message[i];
-                await delay(10); // Adjust typing speed here
-            }
-        };
-
-        document.getElementById('send-btn').addEventListener('click', async () => {
-            const userInput = document.getElementById('user-input');
-            const userMessage = userInput.value;
-
-            // Display user message
-            const userMessageDiv = document.createElement('div');
-            userMessageDiv.className = 'chat-message user-message';
-            userMessageDiv.innerHTML = `<div class="message-content">${userMessage}</div>`;
-            document.getElementById('chat-content').appendChild(userMessageDiv);
-
-            userInput.value = ''; // Clear the input field
-
-            await delay(1000); // Wait 1 second before GPT starts typing
-
-            for (let i = 0; i < messages.length; i++) {
-                const gptMessage = document.createElement('div');
-                gptMessage.className = 'chat-message gpt-message';
-                gptMessage.innerHTML = `
-                    <img src="../images/gpt_avatar.png" alt="GPT Avatar" class="avatar">
-                    <div class="message-content" id="message-${i}"></div>
-                `;
-                document.getElementById('chat-content').appendChild(gptMessage);
-                const messageContent = document.getElementById(`message-${i}`);
-                await typeMessage(messageContent, messages[i]);
-                await delay(1000); // Wait 1 second before the next message
-            }
-
-            document.querySelector('.chat-actions').style.display = 'flex';
-
-            // Disable the send button after click
-            document.getElementById('send-btn').disabled = true;
-        });
-    </script>
+    <div class="input-container">
+        <input type="text" id="userInput" placeholder="Type a message..." readonly value="What's Rong's major information?">
+        <button id="sendButton" onclick="sendMessage()">Send</button>
+    </div>
+    <script src="../scripts/major_info.js"></script>
 </body>
 </html>
