@@ -8,24 +8,40 @@
     <link rel="stylesheet" href="../style/hobby.css">
 </head>
 <body>
-    <button class="info-button-1" onclick="location.href='BasicInfo'">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12H4.5m0 0l6.75-6.75M4.5 12l6.75 6.75"></path>
-        </svg>
-        <div class="text">
-            Back to Basic Information Page
-        </div>
-    </button>
-    <button class="info-button-2" onclick="location.href='Hobby'">
-        <div class="text">
-            Or See Her Hobby
-        </div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
-        </svg>
-    </button>
+    <div class="button-container">
+        <button class="info-button-1" onclick="location.href='BasicInfo'">
+            <svg
+                id="arrow-horizontal"
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="10"
+                viewBox="0 0 46 16">
+                <path
+                    id="Path_10"
+                    data-name="Path 10"
+                    d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+                    transform="translate(30)"
+                    ></path>
+            </svg>
+            <span class="hover-underline-animation"> Back to Basic Information Page </span>
+        </button>
+        <button class="info-button-2" onclick="location.href='Hobby'">
+            <span class="hover-underline-animation"> Or see her hobby </span>
+            <svg
+                id="arrow-horizontal"
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="10"
+                viewBox="0 0 46 16">
+                <path
+                    id="Path_10"
+                    data-name="Path 10"
+                    d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+                    transform="translate(30)"></path>
+            </svg>
+        </button>
+    </div>
     
-    
-    
+      
 </body>
 </html>

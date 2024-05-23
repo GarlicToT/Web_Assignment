@@ -1,40 +1,70 @@
 .info-button-1, .info-button-2 {
-    background-color: #ffffff00;
-    color: black;
-    width: 20em;
-    height: 3.5em;
-    border: #3654ff 0.2em solid;
-    border-radius: 11px;
+    border: none;
+    background: none;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 1em;
-    transition: all 0.6s ease;
-    position: relative;
-    font-size: 24px;
-    box-sizing: border-box;
-    margin: 10px;
+    transition: all 0.3s ease;
+    padding: 10px; /* 添加 padding */
 }
 
-.info-button-1:hover, .info-button-2:hover {
-    background-color: #3654ff;
-    cursor: pointer;
+.info-button-1 span, .info-button-2 span {
+    padding-bottom: 7px;
+    letter-spacing: 4px;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 
 .info-button-1 svg, .info-button-2 svg {
-    width: 1.6em;
-    transition: all 0.6s ease;
+    width: 30px;
+    height: 10px;
+    transition: all 0.3s ease;
 }
 
-.info-button-1:hover svg {
-    transform: translateX(-5px);
-}
-
-.info-button-2:hover svg {
+.info-button-1:hover svg, .info-button-2:hover svg {
     transform: translateX(5px);
+} 
+
+.info-button-1:active svg, .info-button-2:active svg {
+    transform: scale(0.9);
 }
 
-.text {
-    flex-grow: 1;
-    text-align: center;
+.hover-underline-animation {
+    position: relative;
+    color: black;
+    padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.info-button-1:hover .hover-underline-animation:after, .info-button-2:hover .hover-underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.info-button-1 svg {
+    margin-right: 10px;
+    rotate: 180deg;
+}
+
+.info-button-2 svg {
+    margin-left: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* 添加间距 */
+    margin-top: 20px; /* 调整按钮容器的顶部间距 */
 }
