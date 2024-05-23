@@ -1,8 +1,8 @@
 const messages = [
-    "Thanks to the college entrance examination, she has the opportunity to study Artificial Intelligence at UoA and SCNU. If you wonder why she chose this major, she would say she never imagined this situation either. In high school, she wanted to become a biologist.",
-    "But taking things as they come, she has been studying AI courses for nearly two years. You cannot say she knows little about this major, but there is indeed a long way to go for her. When she was a freshman, she participated in several (actually only one) programming competitions and got zero awards. Yet she achieved good results in the Math Modeling Competition as a programmer.",
+    "Thanks to the college entrance examination, she has the opportunity to study Artificial Intelligence at UoA and SCNU. If you wonder why she chose this major, she would say she never imagined this situation either. In high school, she wanted to become a <strong>biologist</strong>.",
+    "But taking things as they come, she has been studying AI courses for nearly two years. You cannot say she knows little about this major, but there is indeed a long way to go for her. When she was a freshman, she participated in several (actually only one) programming competitions and got <strong>zero awards</strong>. Yet she achieved good results in the Math Modeling Competition as a programmer.",
     "Now, as a sophomore, she has become stronger, taking on the role of project leader for two projects: one about computer vision (CV) and another about deep learning.",
-    "Sometimes, late at night, she wonders what it would be like if she pursued biology, as per her seventeen-year-old dreams."
+    "Sometimes, late at night, she wonders what it would be like if she pursued biology, as per her <strong>seventeen-year-old dreams</strong>."
 ];
 
 let messageIndex = 0;
@@ -10,7 +10,7 @@ let messageIndex = 0;
 function typeMessage(message, element, callback) {
     let i = 0;
     const interval = setInterval(() => {
-        element.innerHTML += message[i];
+        element.innerHTML = message.substring(0, i + 1);
         i++;
         if (i >= message.length) {
             clearInterval(interval);
@@ -18,6 +18,7 @@ function typeMessage(message, element, callback) {
         }
     }, 10); // Adjust typing speed here
 }
+
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {

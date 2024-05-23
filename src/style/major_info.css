@@ -8,7 +8,10 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
+    background-image: url('../images/background.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .chat-container {
@@ -42,7 +45,7 @@ body {
 
 .gpt-message {
     align-self: flex-start;
-    background-color: #e3e3e3;
+    background-color: #fff;
     padding-left: 60px; /* To accommodate the avatar */
 }
 
@@ -113,49 +116,6 @@ input[type="text"] {
     background-color: #333;
 }
 
-/* .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* 间距可以根据需要调整 */
-    /* margin-top: 10px;
-} 
-*/
-
-/* .info-button-1, .info-button-2 {
-    background-color: #ffffff00;
-    color: black;
-    width: 20em;
-    height: 3.5em;
-    border: #3654ff 0.2em solid;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1em;
-    transition: all 0.6s ease;
-    position: relative;
-    font-size: 20px;
-    box-sizing: border-box;
-}
-
-.info-button-1:hover, .info-button-2:hover {
-    background-color: #3654ff;
-    cursor: pointer;
-}
-
-.info-button-1 svg, .info-button-2 svg {
-    width: 1.6em;
-    transition: all 0.6s ease;
-}
-
-.info-button-1:hover svg {
-    transform: translateX(-5px);
-}
-
-.info-button-2:hover svg {
-    transform: translateX(5px);
-} */
-
 .text {
     flex-grow: 1;
     text-align: center;
@@ -169,13 +129,13 @@ input[type="text"] {
     display: flex;
     align-items: center;
     transition: all 0.3s ease;
-    padding: 10px; /* 添加 padding */
+    padding: 10px; 
 }
 
 .info-button-1 span, .info-button-2 span {
     padding-bottom: 7px;
     letter-spacing: 4px;
-    font-size: 14px;
+    font-size: 20px;
     text-transform: uppercase;
 }
 
