@@ -19,6 +19,12 @@ function typeMessage(message, element, callback) {
     }, 10); // Adjust typing speed here
 }
 
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+});
+
 function sendMessage() {
     const inputContainer = document.querySelector('.input-container');
     const inputField = document.getElementById('userInput');
@@ -67,8 +73,25 @@ function showButtons() {
     const moreInfoButtons = document.createElement('div');
     moreInfoButtons.classList.add('more-info-buttons');
     moreInfoButtons.innerHTML = `
-        <button class="info-button" onclick="location.href='BasicInfo'">Back to Basic Information Page</button>
-        <button class="info-button" onclick="location.href='Hobby'">Or See Her Hobby</button>
+    <div class="button-container">
+    <button class="info-button-1" onclick="location.href='BasicInfo'">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12H4.5m0 0l6.75-6.75M4.5 12l6.75 6.75"></path>
+        </svg>
+        <div class="text">
+            Back to Basic Information Page
+        </div>
+    </button>
+    <button class="info-button-2" onclick="location.href='Hobby'">
+        <div class="text">
+            Or See Her Hobby
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+        </svg>
+    </button>
+</div>
+
     `;
     chatContainer.appendChild(moreInfoButtons);
     moreInfoButtons.style.opacity = 0;

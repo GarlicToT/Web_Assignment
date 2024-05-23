@@ -1,0 +1,40 @@
+.info-button-1, .info-button-2 {
+    background-color: #ffffff00;
+    color: black;
+    width: 20em;
+    height: 3.5em;
+    border: #3654ff 0.2em solid;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+    transition: all 0.6s ease;
+    position: relative;
+    font-size: 24px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+.info-button-1:hover, .info-button-2:hover {
+    background-color: #3654ff;
+    cursor: pointer;
+}
+
+.info-button-1 svg, .info-button-2 svg {
+    width: 1.6em;
+    transition: all 0.6s ease;
+}
+
+.info-button-1:hover svg {
+    transform: translateX(-5px);
+}
+
+.info-button-2:hover svg {
+    transform: translateX(5px);
+}
+
+.text {
+    flex-grow: 1;
+    text-align: center;
+}
