@@ -219,3 +219,45 @@
 .color.active .icon-container {
     display: none;
 }
+
+.crafts-content {
+    display: none;
+    text-align: left;
+    padding: 20px;
+    font-size: 1.5em;
+    margin: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.crafts-content .text-content {
+    width: 70%;
+}
+
+.crafts-content .image-content {
+    width: 25%;
+}
+
+.crafts-image {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    display: none;
+}
+
+.color#color4.active .crafts-content {
+    display: flex;
+}
+
+.color#color4 .icon-container {
+    display: block;
+}
+
+.color#color4.active .icon-container {
+    display: none;
+}
+
+.card:active + crafts-image{
+    display:block;
+}
