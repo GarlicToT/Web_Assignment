@@ -220,6 +220,84 @@
     display: none;
 }
 
+.sports-content {
+    display: none;
+    text-align: left;
+    padding: 20px;
+    font-size: 1.5em;
+    margin: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sports-content .text-content {
+    width: 100%;
+}
+
+.color#color1.active .sports-content {
+    display: flex;
+}
+
+.color#color1 .icon-container {
+    display: block;
+}
+
+.color#color1.active .icon-container {
+    display: none;
+}
+
+.games-content {
+    display: none;
+    text-align: left;
+    padding: 20px;
+    font-size: 1.5em;
+    margin: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.games-content .text-content {
+    width: 100%;
+}
+
+.color#color2.active .games-content {
+    display: flex;
+}
+
+.color#color2 .icon-container {
+    display: block;
+}
+
+.color#color2.active .icon-container {
+    display: none;
+}
+
+.music-content {
+    display: none;
+    text-align: left;
+    padding: 20px;
+    font-size: 1.5em;
+    margin: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.music-content .text-content {
+    width: 100%;
+}
+
+.color#color3.active .music-content {
+    display: flex;
+}
+
+.color#color3 .icon-container {
+    display: block;
+}
+
+.color#color3.active .icon-container {
+    display: none;
+}
+
 .crafts-content {
     display: none;
     text-align: left;
@@ -239,12 +317,12 @@
     width: 25%;
 }
 
-.crafts-image {
+/* .crafts-image {
     width: 100%;
     height: auto;
     margin-top: 10px;
     display: none;
-}
+} */
 
 .color#color4.active .crafts-content {
     display: flex;
@@ -256,8 +334,4 @@
 
 .color#color4.active .icon-container {
     display: none;
-}
-
-.card:active + crafts-image{
-    display:block;
 }
