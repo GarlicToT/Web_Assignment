@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="../style/quiz.css">
+    <link rel="stylesheet" href="../style/tabbar.css">
+</head>
+<body>
+    <div id="tabbar"></div>
+    <main>
+        <section id="quiz-container">
+            <h1>Welcome to the Quiz!</h1>
+            <div id="welcome-screen">
+                <label for="username">Enter your name:</label>
+                <input type="text" id="username" name="username" required>
+                <button id="start-quiz-btn">Start Quiz</button>
+            </div>
+
+            <div id="question-screen" style="display:none;">
+                <p id="question-text">Question text goes here...</p>
+                <div id="answers">
+                    <button class="answer-btn" data-answer="A">A</button>
+                    <button class="answer-btn" data-answer="B">B</button>
+                    <button class="answer-btn" data-answer="C">C</button>
+                    <button class="answer-btn" data-answer="D">D</button>
+                </div>
+                <div id="timer">Time left: <span id="time-left">15</span> seconds</div>
+            </div>
+
+            <div id="result-screen" style="display:none;">
+                <p id="result-text">You completed all the questions!</p>
+                <p>Your score: <span id="score">0</span></p>
+                <button id="play-again-btn">Play Again</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="../scripts/quiz.js"></script>
+    <script src="../scripts/tabbar.js"></script>
+</body>
+</html>

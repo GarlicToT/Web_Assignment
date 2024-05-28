@@ -1,0 +1,52 @@
+[
+    {
+        "question": "My Hometown is in _______.",
+        "answers": ["Shenzhen", "Cai Xukun", "Huaihua", "Aberdeen"],
+        "correct": "Huaihua"
+    },
+    {
+        "question": "Which course I never skip?",
+        "answers": ["Web Application Course"],
+        "correct": "Web Application Course"
+    },
+    {
+        "question": "What is my dream?",
+        "answers": ["Become United States president", "Buy NASA", "Get Nobel Prize", "Become the headmistress of SCNU"],
+        "correct": "Become the headmistress of SCNU"
+    },
+    {
+        "question": "What I wanted to do in high school?",
+        "answers": ["A teacher", "A biologist", "A singer", "A robot"],
+        "correct": "A biologist"
+    },
+    {
+        "question": "How many award I have got in programming competition?",
+        "answers": ["0", "1", "2", "3"],
+        "correct": "0"
+    },
+    {
+        "question": "What kind of crafts I recently like to do?",
+        "answers": ["Plant beads", "Perler beads", "Cook beads"],
+        "correct": "Perler beads"
+    },
+    {
+        "question": "What is the name of my favorite singer’s concert?",
+        "answers": ["I AM GLORY", "I AM GLOCERY", "I AM G.E.M.", "I AM GLORIA"],
+        "correct": "I AM GLORIA"
+    },
+    {
+        "question": "What game I am playing recently?",
+        "answers": ["PUBG", "League of Legends", "Stardew Valley"],
+        "correct": "Stardew Valley"
+    },
+    {
+        "question": "What kind of sports do I most do well in?",
+        "answers": ["Sprinting", "Marathon", "Sleeping"],
+        "correct": "Sprinting"
+    },
+    {
+        "question": "Which of the following sports is NOT referred in my mastered sports?",
+        "answers": ["Badminton", "Soccer", "Tennis", "Volleyball"],
+        "correct": "Tennis"
+    }
+]

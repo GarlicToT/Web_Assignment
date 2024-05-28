@@ -1,11 +1,11 @@
-  body {
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     display: flex;
     justify-content: end;
-    align-items: center;
+    align-items: start;
     height: 100vh;
     flex-direction: column;
 }
@@ -16,6 +16,7 @@
     margin-bottom: 20px;
     justify-content: flex-start; 
     text-align: left; 
+    margin-left: calc((100vw - var(--card-width))/2);
 }
 
 .small-me {
@@ -28,7 +29,7 @@
     background-color: #f0f0f0;
     border-radius: 20px;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 18px;
     position: relative;
 }
 
@@ -58,6 +59,8 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .palette {
@@ -91,6 +94,7 @@
 :root {
     --translate-x: 0;
     --translate-y: 0;
+    --card-width:0;
 }
 
 
@@ -299,30 +303,32 @@
 }
 
 .crafts-content {
+    width: var(--card-width);
     display: none;
     text-align: left;
-    padding: 20px;
     font-size: 1.5em;
-    margin: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .crafts-content .text-content {
-    width: 70%;
+    width: calc(var(--card-width)*3/5);
+    padding-right:20px;
+    padding-left: 40px;
+    float: left;
 }
 
-.crafts-content .image-content {
-    width: 25%;
-}
-
-/* .crafts-image {
-    width: 100%;
-    height: auto;
-    margin-top: 10px;
+.crafts-image{
+    width: calc(var(--card-width)/4);
+    margin-left: 10px;
+    margin-right: calc(var(--card-width)/12);
     display: none;
-} */
+}
+
+.color#color4.active .crafts-image {
+    display: block;
+}
 
 .color#color4.active .crafts-content {
     display: flex;

@@ -37,6 +37,7 @@ function updateRectangleTransform() {
 
     document.documentElement.style.setProperty('--translate-x', `${translateX}px`);
     document.documentElement.style.setProperty('--translate-y', `${translateY}px`);
+    document.documentElement.style.setProperty('--card-width', `${b}px`);
 }
 
 window.addEventListener('resize', updateRectangleTransform);
