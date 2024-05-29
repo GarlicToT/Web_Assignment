@@ -9,12 +9,6 @@ body {
     background-color: #212121;
 }
 
-.welcome {
-    font-size: 8em;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
 button {
     padding: 0.1em 0.25em;
     width: 260px;
