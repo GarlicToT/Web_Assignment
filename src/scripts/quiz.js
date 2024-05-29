@@ -3,12 +3,15 @@ let currentQuestionIndex = 0;
 let score = 0;
 let incorrectCount = 0;
 let timer;
-
+let username = '';
+const socket = io();
 document.getElementById('start-quiz-btn').addEventListener('click', function() {
-    const username = document.getElementById('username').value;
+    username = document.getElementById('username').value;
     if (username) {
         document.getElementById('welcome-screen').style.display = 'none';
         document.getElementById('question-screen').style.display = 'block';
+        console.log('username:', username)
+        socket.emit('new user', username);
         loadQuestions();
     } else {
         alert('Please enter your name');
@@ -53,6 +56,7 @@ function checkAnswer(selectedAnswer) {
     } else {
         incorrectCount++;
     }
+    socket.emit('update rank', score, username);
     currentQuestionIndex++;
     loadQuestion();
 }
@@ -78,6 +82,19 @@ function endQuiz() {
     document.getElementById('question-screen').style.display = 'none';
     document.getElementById('result-screen').style.display = 'block';
     document.getElementById('score').textContent = score;
+    // 插入排行榜
+    socket.emit('get rank', score);
+    socket.on('update rank', (rank) => {
+        const rankList = document.getElementById('rank-list');
+        rankList.innerHTML = '';
+        rank.forEach((item, index) => {
+            console.log(item)
+            const li = document.createElement('li');
+            li.textContent = `${index + 1}. ${item[0]} ${item[1]}`;
+            rankList.appendChild(li);
+        });
+    });
+
 }
 
 document.getElementById('play-again-btn').addEventListener('click', () => {
