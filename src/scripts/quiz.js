@@ -8,7 +8,7 @@ const socket = io();
 document.getElementById('start-quiz-btn').addEventListener('click', function() {
     username = document.getElementById('username').value;
     if (username) {
-        document.getElementById('welcome-screen').style.display = 'none';
+        document.getElementsByClassName('welcome-screen')[0].style.display = 'none';
         document.getElementById('question-screen').style.display = 'block';
         console.log('username:', username)
         socket.emit('new user', username);
@@ -51,15 +51,61 @@ function loadQuestion() {
 function checkAnswer(selectedAnswer) {
     clearInterval(timer);
     const correctAnswer = questions[currentQuestionIndex].correct;
+    const resultText = document.createElement('p');
+    const nextButton = document.createElement('button');
+
     if (selectedAnswer === correctAnswer) {
         score++;
+        resultText.textContent = "Your answer is correct!";
     } else {
         incorrectCount++;
+        resultText.textContent = "Your answer is incorrect!";
     }
-    socket.emit('update rank', score, username);
-    currentQuestionIndex++;
-    loadQuestion();
+
+    nextButton.textContent = "Next Question";
+    nextButton.onclick = () => {
+        currentQuestionIndex++;
+        loadQuestion();
+    };
+
+    const questionScreen = document.getElementById('question-screen');
+    questionScreen.appendChild(resultText);
+    questionScreen.appendChild(nextButton);
+    
+    // Disable all answer buttons after selecting an answer
+    const answerButtons = document.querySelectorAll('.answer-btn');
+    answerButtons.forEach(button => {
+        button.disabled = true;
+    });
 }
+
+function loadQuestion() {
+    const questionScreen = document.getElementById('question-screen');
+    // 清除上一个问题的结果和按钮
+    while (questionScreen.lastChild.tagName === 'P' || questionScreen.lastChild.tagName === 'BUTTON') {
+        questionScreen.removeChild(questionScreen.lastChild);
+    }
+
+    if (currentQuestionIndex < questions.length) {
+        const questionData = questions[currentQuestionIndex];
+        document.getElementById('question-text').textContent = questionData.question;
+        const answerButtons = document.querySelectorAll('.answer-btn');
+        answerButtons.forEach((button, index) => {
+            if (questionData.answers[index]) {
+                button.style.display = 'block';
+                button.textContent = questionData.answers[index];
+                button.disabled = false;
+                button.onclick = () => checkAnswer(button.textContent);
+            } else {
+                button.style.display = 'none';
+            }
+        });
+        resetTimer();
+    } else {
+        endQuiz();
+    }
+}
+
 
 function resetTimer() {
     clearInterval(timer);
