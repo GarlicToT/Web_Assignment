@@ -55,30 +55,6 @@ main {
     margin-top: 1em;
 }
 
-.answer-btn {
-    display: block;
-    margin: 0.5em 0;
-    padding: 1em;
-    width: 100%;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    border: none;
-    background-color: #007BFF;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.answer-btn:hover {
-    background-color: #0056b3;
-}
-
-#timer {
-    margin-top: 1em;
-    font-size: 1.2em;
-}
-
 footer {
     background-color: #333;
     color: #fff;
@@ -99,7 +75,6 @@ footer {
 .circles {
     width: 100%;
     gap: 8px;
-    /* padding: 10px;   */
 }
 
 .c {
@@ -247,4 +222,111 @@ footer {
    
    #start-quiz-btn:hover::before {
     width: 9em;
+   }
+
+   .answer-btn {
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    font-weight: bolder;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    display: block;
+    margin: 0.5em 0;
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+  }
+  
+  .answer-btn:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+  }
+  
+  .answer-btn:hover {
+    background-color: #62D2A2;
+}
+   
+   #timer{
+    font-size: 0.8em;
+    margin-top: 1em;
+    color: black;
+   }
+
+   .next-btn {
+    width: 12em;
+    height: 2em;
+    border-radius: 30em;
+    font-size: 20px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #ffffff;
+    margin: 0
+   }
+   
+   .next-btn::before {
+    content: '';
+    width: 0;
+    height: 2em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+   }
+   
+   .next-btn:hover::before {
+    width: 12em;
+   }
+
+   #play-again-btn {
+    width: 12em;
+    height: 2em;
+    border-radius: 30em;
+    font-size: 20px;
+    font-family: inherit;
+    font-weight: bolder;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #ffffff;
+    margin: 0
+   }
+   
+   #play-again-btn::before {
+    content: '';
+    width: 0;
+    height: 2em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+   }
+   
+   #play-again-btn:hover::before {
+    width: 12em;
+   }
+
+   #rank-list{
+    font-size: 20px;
+    margin-top: 10px;
    }

@@ -63,6 +63,7 @@ function checkAnswer(selectedAnswer) {
     }
 
     nextButton.textContent = "Next Question";
+    nextButton.classList.add('next-btn');
     nextButton.onclick = () => {
         currentQuestionIndex++;
         loadQuestion();
