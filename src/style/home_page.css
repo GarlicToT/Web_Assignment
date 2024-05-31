@@ -6,7 +6,9 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #212121;
+    background-image: url('../images/welcome.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 button {
@@ -18,9 +20,12 @@ button {
     border-radius: 0.3em;
     font-size: 12px;
     cursor: pointer;
+    position: absolute;
+    bottom: 200px;
+
   }
   
-  button span {
+  button #btn {
     position: relative;
     display: flex;
     justify-content: center;
@@ -37,13 +42,13 @@ button {
     box-shadow: 0em 0.4em 0.22em 0.019em rgba(255,255,255,0.96);
   }
   
-  button span:hover {
+  button #btn:hover {
     transition: all 0.5s;
     transform: translate(0, 0.4em);
     box-shadow: 0 0 0 0 #fff;
   }
   
-  button span:not(hover) {
+  button #btn:not(hover) {
     transition: all 1s;
   }
   

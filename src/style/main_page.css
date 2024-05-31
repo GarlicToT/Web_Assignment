@@ -32,7 +32,16 @@ body {
   font-size: 15em;
   font-weight: bold;
   color: #F8AF78;
-  -webkit-text-stroke: 6px #FBFCD2;
+  /* -webkit-text-stroke: 6px #FBFCD2; */
+  text-shadow: 
+    6px 0 0 #FBFCD2,
+    -6px 0 0 #FBFCD2,
+    0 6px 0 #FBFCD2,
+    0 -6px 0 #FBFCD2,
+    6px 6px 0 #FBFCD2,
+    -6px -6px 0 #FBFCD2,
+    6px -6px 0 #FBFCD2,
+    -6px 6px 0 #FBFCD2;
   transform: rotate(-8deg);
   position: absolute;
   top: 20px;
@@ -44,7 +53,16 @@ body {
   font-size: 10em;
   font-weight: bold;
   color: #F8AF78;
-  -webkit-text-stroke: 6px #FBFCD2;
+  /* -webkit-text-stroke: 6px #FBFCD2; */
+  text-shadow: 
+    6px 0 0 #FBFCD2,
+    -6px 0 0 #FBFCD2,
+    0 6px 0 #FBFCD2,
+    0 -6px 0 #FBFCD2,
+    6px 6px 0 #FBFCD2,
+    -6px -6px 0 #FBFCD2,
+    6px -6px 0 #FBFCD2,
+    -6px 6px 0 #FBFCD2;
   position: absolute;
   top: 220px;
   right: 150px;
@@ -56,7 +74,16 @@ body {
   font-size: 16em;
   font-weight: bold;
   color: #F8AF78;
-  -webkit-text-stroke: 6px #FBFCD2;
+  /* -webkit-text-stroke: 6px #FBFCD2; */
+  text-shadow: 
+    6px 0 0 #FBFCD2,
+    -6px 0 0 #FBFCD2,
+    0 6px 0 #FBFCD2,
+    0 -6px 0 #FBFCD2,
+    6px 6px 0 #FBFCD2,
+    -6px -6px 0 #FBFCD2,
+    6px -6px 0 #FBFCD2,
+    -6px 6px 0 #FBFCD2;
   text-align: center;
   position: absolute;
   bottom: 0px;

@@ -1,356 +1,359 @@
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        display: flex;
-        justify-content: end;
-        align-items: start;
-        height: 100vh;
-        flex-direction: column;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: end;
+            align-items: start;
+            height: 100vh;
+            flex-direction: column;
+        }
 
-    .intro-section {
-        display: flex;
-        align-items: left;
-        margin-bottom: 20px;
-        justify-content: flex-start; 
-        text-align: left; 
-        margin-left: calc((100vw - var(--card-width))/2);
-    }
+        .intro-section {
+            display: flex;
+            margin-bottom: 20px;
+            justify-content: flex-start; 
+            text-align: left; 
+            margin-left: calc((100vw - var(--card-width))/2);
+        }
 
-    .small-me {
-        width: 50px;
-        height: auto;
-        margin-right: 20px;
-    }
+        .small-me {
+            width: 50px;
+            height: auto;
+            margin-right: 20px;
+        }
 
-    .chat-bubble {
-        background-color: #f0f0f0;
-        border-radius: 20px;
-        padding: 10px 20px;
-        font-size: 18px;
-        position: relative;
-    }
+        .chat-bubble {
+            background-color: #f0f0f0;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            position: relative;
+        }
 
-    .chat-bubble::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: -20px;
-        width: 0;
-        height: 0;
-        border: 10px solid transparent;
-        border-right-color: #f0f0f0;
-        border-left: 0;
-        margin-top: -10px;
-    }
+        .chat-bubble::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-right-color: #f0f0f0;
+            border-left: 0;
+            margin-top: -10px;
+        }
 
-    .container {
-        width: 84%;
-        height: 75%;
-        border-radius: 5em;
-        overflow: hidden;
-        box-shadow: 0 10px 20px #dbdbdb;
-        font-family: sans-serif;
-        background: white;
-        pointer-events: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 60px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+        .container {
+            width: 84%;
+            height: 75%;
+            border-radius: 5em;
+            overflow: hidden;
+            box-shadow: 0 10px 20px #dbdbdb;
+            font-family: sans-serif;
+            background: white;
+            pointer-events: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 60px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    .palette {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        border-radius: 1rem;
-        overflow: hidden;
-        pointer-events: auto;
-    }
+        .palette {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+            overflow: hidden;
+            pointer-events: visible;
+        }
 
-    .color {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        transform-origin: center;
-        transition: 0.3s ease-in-out;
-        box-sizing: inline-block;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-    }
+        .color {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transition: 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
 
-    .color span {
-        color: white;
-        font-weight: 600;
-        letter-spacing: 1px;
-    }
+        .color span {
+            color: white;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
 
-    :root {
-        --translate-x: 0;
-        --translate-y: 0;
-        --card-width:0;
-    }
+        :root {
+            --translate-x: 0;
+            --translate-y: 0;
+            --card1-x: 0;
+            --card1-y: 0;
+            --card2-x: 0;
+            --card2-y: 0;
+            --card3-x: 0;
+            --card3-y: 0;
+            --card4-x: 0;
+            --card4-y: 0;
+            --card-width:0;
+        }
 
+        #color1 {
+            background: #62D2A2;
+            transform-origin: left bottom;
+            /* transform: rotate(45deg) translate(calc(-1 * var(--translate-x)), calc(1 * var(--translate-y))); */
+            transform: rotate(45deg) translate(var(--card1-x), var(--card1-y));
+            outline: 0 solid #62D2A2;
+            z-index: 9;
+        }
 
+        #color1.active {
+            transform: translate(0px, 0px) rotate(0deg);
+            z-index: 99;
+            outline: 20px solid #62D2A2;
+        }
 
-    #color1 {
-        background: #62D2A2;
-        rotate: 45deg;
-        translate:calc(-1*var(--translate-y)) calc(-1*var(--translate-x));
-        outline: 0 solid #62D2A2;
-        z-index: 9;
-    }
+        #color2 {
+            background: #D7FBE8;
+            transform-origin: left top;
+            /* transform: rotate(45deg) translate(calc(-1 * var(--translate-y)), calc(1 * var(--translate-x))); */
+            transform: rotate(45deg) translate(var(--card2-x), var(--card2-y));
+            outline: 0 solid #D7FBE8;
+            z-index: 19;
+        }
 
-    #color1.active {
-        translate: 0 0;
-        rotate: 0deg;
-        z-index: 99;
-        outline: 20px solid #62D2A2;
-    }
+        #color2.active {
+            transform: translate(0px,0px) rotate(0deg);
+            z-index: 99;
+            outline: 20px solid #D7FBE8;
+        }
 
-    #color2 {
-        background: #D7FBE8;
-        rotate: 45deg;
-        translate:calc(-1*var(--translate-x)) calc(-1*var(--translate-y));
-        outline: 0 solid #D7FBE8;
-        z-index: 9;
-    }
+        #color2 span {
+            color: #1A1A1A;
+        }
 
-    #color2.active {
-        translate: 0 0;
-        rotate: 0deg;
-        z-index: 99;
-        outline: 20px solid #D7FBE8;
-    }
+        #color3 {
+            background: #9DF3C4;
+            transform-origin: right top;
+            /* transform: rotate(45deg) translate(calc(1 * var(--translate-x)), calc(-1 * var(--translate-y))); */
+            transform: rotate(45deg) translate(var(--card3-x), var(--card3-y));
+            outline: 0 solid #9DF3C4;
+            z-index: 9;
+        }
 
-    #color2 span {
-        color: #1A1A1A;
-    }
+        #color3.active {
+            transform: translate(0px,0px) rotate(0deg);
+            z-index: 99;
+            outline: 20px solid #9DF3C4;
+        }
 
-    #color3 {
-        background: #9DF3C4;
-        rotate: 45deg;
-        translate:calc(var(--translate-y)) calc(var(--translate-x));
-        outline: 0 solid #9DF3C4;
-        z-index: 9;
-    }
+        #color3 span{
+            color: #1A1A1A;
+        }
 
-    #color3.active {
-        translate: 0 0;
-        rotate: 0deg;
-        z-index: 99;
-        outline: 20px solid #9DF3C4;
-    }
+        #color4 {
+            background: #1FAB89;
+            transform-origin: right bottom;
+            /* transform: rotate(45deg) translate(calc(1 * var(--translate-y)), calc(-1 * var(--translate-x))); */
+            transform: rotate(45deg) translate(var(--card4-x), var(--card4-y));
+            outline: 0 solid #1FAB89;
+            z-index: 9;
+        }
 
-    #color3 span{
-        color: #1A1A1A;
-    }
+        #color4.active {
+            transform: translate(0px,0px) rotate(0deg);
+            z-index: 99;
+            outline: 20px solid #1FAB89;
+        }
 
-    #color4 {
-        background: #1FAB89;
-        rotate: 45deg;
-        translate:calc(var(--translate-x)) calc(var(--translate-y));
+        .close-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
 
-        outline: 0 solid #1FAB89;
-        z-index: 9;
-    }
+        .color.active .close-icon {
+            display: flex;
+        }
 
-    #color4.active {
-        translate: 0 0;
-        rotate: 0deg;
-        z-index: 99;
-        outline: 20px solid #1FAB89;
-    }
+        .icon-container {
+            width: 8em;
+            height: 8em;
+            position: absolute;
+        }
 
-    .close-icon {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        width: 24px;
-        height: 24px;
-        background: white;
-        border-radius: 50%;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-    }
+        .icon-container img {
+            width: 100%;
+            height: 100%;
+            fill: white;
+            transform: rotate(-45deg);
 
-    .color.active .close-icon {
-        display: flex;
-    }
+        }
 
-    .icon-container {
-        width: 8em;
-        height: 8em;
-        position: absolute;
-    }
+        .top-right {
+            top: 10px;
+            right: 10px;
+        }
 
-    .icon-container svg {
-        width: 100%;
-        height: 100%;
-        fill: white;
-        transform: rotate(-45deg);
+        .bottom-right {
+            bottom: 10px;
+            right: 10px;
+        }
 
-    }
+        .top-left {
+            top: 10px;
+            left: 10px;
+        }
 
-    .top-right {
-        top: 10px;
-        right: 10px;
-    }
+        .bottom-left {
+            bottom: 10px;
+            left: 10px;
+        }
 
-    .bottom-right {
-        bottom: 10px;
-        right: 10px;
-    }
+        .color.active .icon-container {
+            display: none;
+        }
 
-    .top-left {
-        top: 10px;
-        left: 10px;
-    }
+        .sports-content {
+            display: none;
+            text-align: left;
+            padding: 20px;
+            font-size: 1.5em;
+            margin: 30px;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .bottom-left {
-        bottom: 10px;
-        left: 10px;
-    }
+        .sports-content .text-content {
+            width: 100%;
+        }
 
-    .color.active .icon-container {
-        display: none;
-    }
+        .color#color1.active .sports-content {
+            display: flex;
+        }
 
-    .sports-content {
-        display: none;
-        text-align: left;
-        padding: 20px;
-        font-size: 1.5em;
-        margin: 30px;
-        justify-content: space-between;
-        align-items: center;
-    }
+        .color#color1 .icon-container {
+            display: block;
+        }
 
-    .sports-content .text-content {
-        width: 100%;
-    }
+        .color#color1.active .icon-container {
+            display: none;
+        }
 
-    .color#color1.active .sports-content {
-        display: flex;
-    }
+        .games-content {
+            display: none;
+            text-align: left;
+            padding: 20px;
+            font-size: 1.5em;
+            margin: 30px;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .color#color1 .icon-container {
-        display: block;
-    }
+        .games-content .text-content {
+            width: 100%;
+        }
 
-    .color#color1.active .icon-container {
-        display: none;
-    }
+        .color#color2.active .games-content {
+            display: flex;
+        }
 
-    .games-content {
-        display: none;
-        text-align: left;
-        padding: 20px;
-        font-size: 1.5em;
-        margin: 30px;
-        justify-content: space-between;
-        align-items: center;
-    }
+        .color#color2 .icon-container {
+            display: block;
+        }
 
-    .games-content .text-content {
-        width: 100%;
-    }
+        .color#color2.active .icon-container {
+            display: none;
+        }
 
-    .color#color2.active .games-content {
-        display: flex;
-    }
+        .music-content {
+            display: none;
+            text-align: left;
+            padding: 20px;
+            font-size: 1.5em;
+            margin: 30px;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .color#color2 .icon-container {
-        display: block;
-    }
+        .music-content .text-content {
+            width: 100%;
+        }
 
-    .color#color2.active .icon-container {
-        display: none;
-    }
+        .color#color3.active .music-content {
+            display: flex;
+        }
 
-    .music-content {
-        display: none;
-        text-align: left;
-        padding: 20px;
-        font-size: 1.5em;
-        margin: 30px;
-        justify-content: space-between;
-        align-items: center;
-    }
+        .color#color3 .icon-container {
+            display: block;
+        }
 
-    .music-content .text-content {
-        width: 100%;
-    }
+        .color#color3.active .icon-container {
+            display: none;
+        }
 
-    .color#color3.active .music-content {
-        display: flex;
-    }
+        .crafts-content {
+            width: var(--card-width);
+            display: none;
+            text-align: left;
+            font-size: 1.5em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .color#color3 .icon-container {
-        display: block;
-    }
+        .crafts-content .text-content {
+            width: calc(var(--card-width)*3/5);
+            padding-right:20px;
+            padding-left: 40px;
+            float: left;
+        }
 
-    .color#color3.active .icon-container {
-        display: none;
-    }
+        .crafts-image{
+            width: calc(var(--card-width)/4);
+            margin-left: 15px;
+            margin-right: calc(var(--card-width)/12);
+            display: none;
+        }
 
-    .crafts-content {
-        width: var(--card-width);
-        display: none;
-        text-align: left;
-        font-size: 1.5em;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+        .other-image{
+            margin-left: 15px;
+            margin-right: 15px;
+            display: none;
+            width: 20em
+        }
 
-    .crafts-content .text-content {
-        width: calc(var(--card-width)*3/5);
-        padding-right:20px;
-        padding-left: 40px;
-        float: left;
-    }
+        .color#color2.active .other-image {
+            display: block;
+        }
+        .color#color3.active .other-image {
+            display: block;
+        }
+        .color#color4.active .crafts-image {
+            display: block;
+        }
 
-    .crafts-image{
-        width: calc(var(--card-width)/4);
-        margin-left: 15px;
-        margin-right: calc(var(--card-width)/12);
-        display: none;
-    }
+        .color#color4.active .crafts-content {
+            display: flex;
+        }
 
-    .other-image{
-        margin-left: 15px;
-        margin-right: 15px;
-        display: none;
-        width: 20em
-    }
+        .color#color4 .icon-container {
+            display: block;
+        }
 
-    .color#color2.active .other-image {
-        display: block;
-    }
-    .color#color3.active .other-image {
-        display: block;
-    }
-    .color#color4.active .crafts-image {
-        display: block;
-    }
-
-    .color#color4.active .crafts-content {
-        display: flex;
-    }
-
-    .color#color4 .icon-container {
-        display: block;
-    }
-
-    .color#color4.active .icon-container {
-        display: none;
-    }
+        .color#color4.active .icon-container {
+            display: none;
+        }

@@ -37,6 +37,15 @@ function updateRectangleTransform() {
 
     document.documentElement.style.setProperty('--translate-x', `${translateX}px`);
     document.documentElement.style.setProperty('--translate-y', `${translateY}px`);
+    document.documentElement.style.setProperty('--card1-x', `${-translateX}px`);
+    document.documentElement.style.setProperty('--card1-y', `${translateY}px`);
+    document.documentElement.style.setProperty('--card2-x', `${-translateY}px`);
+    document.documentElement.style.setProperty('--card2-y', `${translateX}px`);
+    document.documentElement.style.setProperty('--card3-x', `${translateX}px`);
+    document.documentElement.style.setProperty('--card3-y', `${-translateY}px`);
+    document.documentElement.style.setProperty('--card4-x', `${translateY}px`);
+    document.documentElement.style.setProperty('--card4-y', `${-translateX}px`);
+
     document.documentElement.style.setProperty('--card-width', `${b}px`);
 }
 

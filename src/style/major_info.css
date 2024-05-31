@@ -179,7 +179,7 @@ input[type="text"] {
 
 .info-button-1 svg {
     margin-right: 10px;
-    rotate: 180deg;
+    transform: rotate(0);
 }
 
 .info-button-2 svg {
