@@ -16,47 +16,68 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/src/html/home_page.html');
 });
 
-// let rank = {};
-// let user = {};
-// // 字典按照value实现排序，返回排序后的字典
-function sortDict(dict) {
-    let items = Object.keys(dict).map(function(key) {
-        return [key, dict[key]];
-    });
-    items.sort(function(first, second) {
-        return second[1] - first[1];
-    });
-    return items;
+class UserScores {
+    constructor() {
+        this.scoresMap = new Map();
+        this.sortedUsers = [];
+    }
+
+    // 添加或更新用户得分
+    addOrUpdateUser(username, score) {
+        if (this.scoresMap.has(username)) {
+            const existingScore = this.scoresMap.get(username);
+            if (score > existingScore) {
+                this.scoresMap.set(username, score);
+                this.updateSortedUsers(username, score);
+            }
+        } else {
+            this.scoresMap.set(username, score);
+            this.sortedUsers.push({ username, score });
+            this.sortedUsers.sort((a, b) => b.score - a.score);
+        }
+    }
+    updateSortedUsers(username, score) {
+        for (let i = 0; i < this.sortedUsers.length; i++) {
+            if (this.sortedUsers[i].username === username) {
+                this.sortedUsers[i].score = score;
+                break;
+            }
+        }
+        this.sortedUsers.sort((a, b) => b.score - a.score);
+    }
+
+    getUserScore(username) {
+        return this.scoresMap.get(username) || null;
+    }
+
+    removeUserFromSortedList(username) {
+        this.sortedUsers = this.sortedUsers.filter(user => user.username !== username);
+    }
+
+    getSortedUsers() {
+        return this.sortedUsers;
+    }
 }
-// // 组合rank{id:score}和user{id:username}字典，得到username:score的字典
-// function combineDict(rank, user) {
-//     let items = Object.keys(rank).map(function(key) {
-//         return [user[key], rank[key]];
-//     });
-//     return items;
-// }
-let rank = {};
+
 // use socket.io 
 io.on('connection', (socket) => {
+    const userScores = new UserScores();
+
     socket.on('new user', (username) => {
-        // rank[(socket.id).toString()] = -1;
-        // user[(socket.id).toString()] = username;
-        rank[username] = -1;
+        userScores.addOrUpdateUser(username, -1);
         io.emit('new user', username);
     });
     socket.on('update rank', (newScore, username) => {
-        // rank[(socket.id).toString()] = newScore > rank[(socket.id).toString()] ? newScore : rank[(socket.id).toString()];
-        rank[username] = newScore > rank[username] ? newScore : rank[username];
-        io.emit('update rank', sortDict(rank));
+        console.log(newScore, username);
+        userScores.addOrUpdateUser(username, newScore);
+        const sortedUsers = userScores.getSortedUsers();
+        io.emit('update rank', sortedUsers);
     });
-    socket.on('get rank', () => {
-        io.emit('update rank', sortDict(rank));
-    });
-    
+
 });
 
 // listen to the port
-http.listen(port, ()=>{
+http.listen(port, () => {
     console.log(`listening on port: ${port}`);
     console.log(`If you're running locally, server running at http://${hostname}:${port}/`);
     console.log(`If you're running on codio, server running at https://peaceyoga-normaldarwin-${port}.codio-box.uk/`)

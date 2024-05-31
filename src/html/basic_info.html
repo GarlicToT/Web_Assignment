@@ -32,9 +32,15 @@
         </div>
         
     </div>
-    <img src="../images/my_photo.PNG" alt="My Photo" class="my_photo">
-
-    <script src="../scripts/tabbar.js"></script>
+    <img src="../images/my_photo.PNG" alt="My Photo" class="animate" id="animating-element">
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const element = document.getElementById('animating-element');
+            element.classList.add('move');
+        });
+    </script>
+    <script src="../scripts/tabbar.js"></script>       
 
 </body>
 </html>

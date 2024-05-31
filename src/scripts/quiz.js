@@ -5,6 +5,39 @@ let incorrectCount = 0;
 let timer;
 let username = '';
 const socket = io();
+
+function alert(message) {
+    console.log('alert:', message);
+    // add overlay
+    const overlay = $('<div>').addClass('overlay');
+    $('body').append(overlay);
+    // add message box
+    const msg = $('<div>').attr('id', 'msg');
+    const msgCont = $('<div>').attr('id', 'msg_cont').text(message);
+    const msgClear = $('<div>').attr('id', 'msg_clear').text('OK');
+    msg.append(msgCont).append(msgClear);
+    $('body').append(msg);
+    // remove overlay and message box when click OK button
+    msgClear.click(function() {
+      overlay.remove();
+      msg.remove();
+    });
+  };
+document.getElementById('username').addEventListener('keydown',function(event){
+    if(event.key=='Enter'){
+        username = document.getElementById('username').value;
+        if (username) {
+            document.getElementsByClassName('welcome-screen')[0].style.display = 'none';
+            document.getElementById('question-screen').style.display = 'block';
+            console.log('username:', username)
+            socket.emit('new user', username);
+            loadQuestions();
+        } else {
+            alert('Please enter your name');
+        }
+    }
+})
+  
 document.getElementById('start-quiz-btn').addEventListener('click', function() {
     username = document.getElementById('username').value;
     if (username) {
@@ -17,6 +50,7 @@ document.getElementById('start-quiz-btn').addEventListener('click', function() {
         alert('Please enter your name');
     }
 });
+
 
 function loadQuestions() {
     fetch('../data/questions.json')
@@ -47,37 +81,42 @@ function loadQuestion() {
         endQuiz();
     }
 }
-
+function showResult(message) {
+    console.log('alert:', message);
+    // add overlay
+    const overlay = $('<div>').addClass('overlay');
+    $('body').append(overlay);
+    // add message box
+    const msg = $('<div>').attr('id', 'msg');
+    const msgCont = $('<div>').attr('id', 'msg_cont').text(message);
+    const msgClear = $('<div>').attr('id', 'msg_clear').text('Next Question');
+    msg.append(msgCont).append(msgClear);
+    $('body').append(msg);
+    // remove overlay and message box when click OK button
+    msgClear.click(function() {
+        currentQuestionIndex++;
+        loadQuestion();
+        overlay.remove();
+        msg.remove();
+    });
+  }
 function checkAnswer(selectedAnswer) {
     clearInterval(timer);
     const correctAnswer = questions[currentQuestionIndex].correct;
-    const resultText = document.createElement('p');
-    const nextButton = document.createElement('button');
-
-    if (selectedAnswer === correctAnswer) {
+    // const resultText = document.createElement('p');
+    // const nextButton = document.createElement('button');
+    if (selectedAnswer==""){
+        incorrectCount++;
+        showResult("Time's up! Your answer is incorrect!");
+    }
+    else if (selectedAnswer === correctAnswer) {
         score++;
-        resultText.textContent = "Your answer is correct!";
+        showResult("Your answer is correct!");
     } else {
         incorrectCount++;
-        resultText.textContent = "Your answer is incorrect!";
+        showResult("Your answer is incorrect!");
     }
 
-    nextButton.textContent = "Next Question";
-    nextButton.classList.add('next-btn');
-    nextButton.onclick = () => {
-        currentQuestionIndex++;
-        loadQuestion();
-    };
-
-    const questionScreen = document.getElementById('question-screen');
-    questionScreen.appendChild(resultText);
-    questionScreen.appendChild(nextButton);
-    
-    // Disable all answer buttons after selecting an answer
-    const answerButtons = document.querySelectorAll('.answer-btn');
-    answerButtons.forEach(button => {
-        button.disabled = true;
-    });
 }
 
 function loadQuestion() {
@@ -116,10 +155,7 @@ function resetTimer() {
         timeLeft--;
         document.getElementById('time-left').textContent = timeLeft;
         if (timeLeft === 0) {
-            clearInterval(timer);
-            incorrectCount++;
-            currentQuestionIndex++;
-            loadQuestion();
+            checkAnswer('');
         }
     }, 1000);
 }
@@ -130,16 +166,15 @@ function endQuiz() {
     document.getElementById('result-screen').style.display = 'block';
     document.getElementById('score').textContent = score;
     // 插入排行榜
-    socket.emit('get rank', score);
-    socket.on('update rank', (rank) => {
+    socket.emit('update rank', score, username);
+    socket.on('update rank', (sortedUsers) => {
         const rankList = document.getElementById('rank-list');
         rankList.innerHTML = '';
-        rank.forEach((item, index) => {
-            console.log(item)
-            const li = document.createElement('li');
-            li.textContent = `${index + 1}. ${item[0]} ${item[1]}`;
-            rankList.appendChild(li);
-        });
+        sortedUsers.forEach(user => {
+            const userItem = document.createElement('li');
+            userItem.textContent = `${user.username}: ${user.score}`;
+            rankList.appendChild(userItem);
+          });
     });
 
 }
@@ -149,5 +184,5 @@ document.getElementById('play-again-btn').addEventListener('click', () => {
     score = 0;
     incorrectCount = 0;
     document.getElementById('result-screen').style.display = 'none';
-    document.getElementById('welcome-screen').style.display = 'block';
+    document.getElementsByClassName('welcome-screen')[0].style.display = 'flex';
 });

@@ -12,6 +12,55 @@ body {
     background-position: center;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* put under the alert window */
+    z-index: 9998;
+}
+
+#msg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: rgb(233, 233, 233) 3px solid;
+    border-radius: 5px;
+    padding: 20px 50px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    z-index: 10000;
+}
+
+#msg #msg_cont {
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+}
+
+#msg #msg_clear {
+    border: rgb(233, 233, 233) 2px solid;
+    border-radius: 5px;
+    background-color: rgba(223, 229, 232, 0.3);
+    color: #000;
+    font-size: 22px;
+    font-weight: 600;
+    width: fit-content;
+    margin-top: 16px;
+    padding: 4px 14px;
+    float: right;
+}
+
+#msg #msg_clear:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    transition: all 0.2s;
+}
+
 header {
     background-color: #333;
     color: #fff;
@@ -141,18 +190,18 @@ footer {
     gap: 7px;
     position: relative;
     color: gray;
-  }
-  
-  .welcome-screen .label {
+}
+
+.welcome-screen .label {
     font-size: 24px;
     padding-left: 10px;
     position: absolute;
     top: 8px;
     transition: 0.3s;
     pointer-events: none;
-  }
-  
-  .input {
+}
+
+.input {
     width: 80%;
     height: 45px;
     border: none;
@@ -162,35 +211,35 @@ footer {
     color: #fff;
     font-size: 24px;
     background-color: transparent;
-    box-shadow: 3px 3px 10px rgba(0,0,0,1),
-    -1px -1px 6px rgba(255, 255, 255, 0.4);
-  }
-  
-  .input:focus {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+        -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.input:focus {
     border: 2px solid transparent;
     color: black;
-    box-shadow: 3px 3px 10px rgba(0,0,0,1),
-    -1px -1px 6px rgba(255, 255, 255, 0.4),
-    inset 3px 3px 10px rgba(0,0,0,1),
-    inset -1px -1px 6px rgba(255, 255, 255, 0.4);
-  }
-  
-  .welcome-screen .input:valid ~ .label,
-  .welcome-screen .input:focus ~ .label {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+        -1px -1px 6px rgba(255, 255, 255, 0.4),
+        inset 3px 3px 10px rgba(0, 0, 0, 1),
+        inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.welcome-screen .input:valid~.label,
+.welcome-screen .input:focus~.label {
     transition: 0.3s;
     padding-left: 2px;
     transform: translateY(-35px);
-  }
-  
-  .welcome-screen .input:valid,
-  .welcome-screen .input:focus {
-    box-shadow: 3px 3px 10px rgba(0,0,0,1),
-    -1px -1px 6px rgba(255, 255, 255, 0.4),
-    inset 3px 3px 10px rgba(0,0,0,1),
-    inset -1px -1px 6px rgba(255, 255, 255, 0.4);
-  }
+}
 
-  #start-quiz-btn {
+.welcome-screen .input:valid,
+.welcome-screen .input:focus {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+        -1px -1px 6px rgba(255, 255, 255, 0.4),
+        inset 3px 3px 10px rgba(0, 0, 0, 1),
+        inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+#start-quiz-btn {
     width: 9em;
     height: 3em;
     border-radius: 30em;
@@ -201,12 +250,12 @@ footer {
     overflow: hidden;
     z-index: 1;
     box-shadow: 6px 6px 12px #c5c5c5,
-                -6px -6px 12px #ffffff;
+        -6px -6px 12px #ffffff;
     margin-left: 5px;
     font-weight: bolder;
-   }
-   
-   #start-quiz-btn::before {
+}
+
+#start-quiz-btn::before {
     content: '';
     width: 0;
     height: 3em;
@@ -218,13 +267,13 @@ footer {
     transition: .5s ease;
     display: block;
     z-index: -1;
-   }
-   
-   #start-quiz-btn:hover::before {
-    width: 9em;
-   }
+}
 
-   .answer-btn {
+#start-quiz-btn:hover::before {
+    width: 9em;
+}
+
+.answer-btn {
     color: #090909;
     padding: 0.7em 1.7em;
     font-size: 18px;
@@ -242,24 +291,24 @@ footer {
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
-  }
-  
-  .answer-btn:active {
+}
+
+.answer-btn:active {
     color: #666;
     box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
-  }
-  
-  .answer-btn:hover {
+}
+
+.answer-btn:hover {
     background-color: #62D2A2;
 }
-   
-   #timer{
+
+#timer {
     font-size: 0.8em;
     margin-top: 1em;
     color: black;
-   }
+}
 
-   .next-btn {
+.next-btn {
     width: 12em;
     height: 2em;
     border-radius: 30em;
@@ -270,11 +319,11 @@ footer {
     overflow: hidden;
     z-index: 1;
     box-shadow: 6px 6px 12px #c5c5c5,
-                -6px -6px 12px #ffffff;
+        -6px -6px 12px #ffffff;
     margin: 0
-   }
-   
-   .next-btn::before {
+}
+
+.next-btn::before {
     content: '';
     width: 0;
     height: 2em;
@@ -286,13 +335,13 @@ footer {
     transition: .5s ease;
     display: block;
     z-index: -1;
-   }
-   
-   .next-btn:hover::before {
-    width: 12em;
-   }
+}
 
-   #play-again-btn {
+.next-btn:hover::before {
+    width: 12em;
+}
+
+#play-again-btn {
     width: 12em;
     height: 2em;
     border-radius: 30em;
@@ -304,11 +353,11 @@ footer {
     overflow: hidden;
     z-index: 1;
     box-shadow: 6px 6px 12px #c5c5c5,
-                -6px -6px 12px #ffffff;
+        -6px -6px 12px #ffffff;
     margin: 0
-   }
-   
-   #play-again-btn::before {
+}
+
+#play-again-btn::before {
     content: '';
     width: 0;
     height: 2em;
@@ -320,13 +369,13 @@ footer {
     transition: .5s ease;
     display: block;
     z-index: -1;
-   }
-   
-   #play-again-btn:hover::before {
-    width: 12em;
-   }
+}
 
-   #rank-list{
+#play-again-btn:hover::before {
+    width: 12em;
+}
+
+#rank-list {
     font-size: 20px;
     margin-top: 10px;
-   }
+}
