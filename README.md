@@ -67,7 +67,7 @@ If you are already in Codio Box, please follow the steps below:
 [(Back to top)](#table-of-contents)
 
 File Structure:
-```sh
+```
   '    |-- config.js',
   '    |-- index.js',
   '    |-- package-lock.json',
@@ -77,6 +77,8 @@ File Structure:
   '    |-- src',
   '        |-- data',
   '        |   |-- questions.json',
+  '        |-- fonts',
+  '        |   |-- COOPBL.TTF',
   '        |-- html',
   '        |   |-- basic_info.html',
   '        |   |-- hobby.html',
@@ -84,7 +86,6 @@ File Structure:
   '        |   |-- main_page.html',
   '        |   |-- major_info.html',
   '        |   |-- quiz.html',
-  '        |   |-- result.html',
   '        |   |-- tabbar.html',
   '        |-- images',
   '        |   |-- background.png',

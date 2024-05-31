@@ -1,4 +1,8 @@
 /* General styles */
+@font-face{
+  font-family: 'Cooper Black';
+  src: url('../fonts/COOPBL.TTF');
+}
 body {
   font-family: Arial, sans-serif;
   margin: 0;

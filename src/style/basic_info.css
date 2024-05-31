@@ -32,12 +32,14 @@ animation: moveToBottomRight  3s forwards;
 @keyframes moveToBottomRight {
 0% {
     width: 0;
-    transform: translate(-50%, -50%);
-}
-100% {
     top: 100%;
     left: 100%;
-    width: 40%;
+    transform: translate(-100%, -100%);
+}
+100% {
+  top: 100%;
+  left: 100%;
+  width: 40%;
     transform: translate(-100%, -100%);
 }
 }
